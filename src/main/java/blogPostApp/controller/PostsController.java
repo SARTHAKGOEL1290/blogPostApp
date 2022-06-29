@@ -30,11 +30,13 @@ public class PostsController {
 	@Autowired
 	private PostsServiceImpel postService;
 	
+	
 	@PostMapping("/user/{userId}/category/{categoryId}/post")
 	public ResponseEntity<PostsDTO> createNewPostController(@RequestBody PostsDTO post,
 			                             @PathVariable("userId") Integer userId,
 			                             @PathVariable("categoryId") Integer categId)
 	{
+		System.out.println("HEllo");
 		PostsDTO newPost = this.postService.CreatePost(post, userId, categId);
 		return new ResponseEntity<PostsDTO>(newPost,HttpStatus.CREATED);
 		
